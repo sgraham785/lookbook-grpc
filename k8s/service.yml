@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-grpc
+  namespace: default
+  labels:
+    name: hello-grpc
+    type: backend
+spec:
+  clusterIP: None
+  ports:
+    - name: grpc
+      port: 50051
+  selector:
+    name: hello-grpc
+    type: backend

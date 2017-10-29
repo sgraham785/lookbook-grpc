@@ -1,0 +1,17 @@
+version: '3'
+services:
+  golang_hello-grpc:
+    image: golang:1.9.1
+    build: ../
+    command: realize start
+    volumes:
+      - ../go:/go
+      - ../Makefile:/go/src/app/Makefile
+    working_dir: /go/src/app
+    environment:
+      - APP_ENV=development
+      - DEBUG=true
+      - DB_URL=mongodb://workplacex-db/workplacex
+    ports:
+      - "50056:50051"
+    

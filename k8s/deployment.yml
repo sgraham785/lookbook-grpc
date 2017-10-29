@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-grpc-deployment
+  namespace: default
+  labels:
+    name: hello-grpc
+    type: backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: hello-grpc
+        type: backend
+    spec:
+      containers:
+      - image: gcr.io/blah/hello-grpc:latest
+        imagePullPolicy: Always
+        name: hello-grpc
+        env:
+        - name: NODE_ENV
+          value: production
+        - name: DB_URL
+          value: mongodb://mongo/blah
+        - name: REDEPLOY_LATEST_IMAGE
+          value: timestamp
+        ports:
+         - containerPort: 50051
+           name: projects

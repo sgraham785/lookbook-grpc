@@ -1,0 +1,1 @@
+docker run --publish 50056:50051 --name hello-grpc --rm gcr.io/blah/hello-grpc
