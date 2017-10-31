@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package lookbook.srvc;
+
+import 'protos/lookbook/msg.proto';
+message Empty {}
+
+service Lookbook {
+  rpc CreateLookbook (lookbook.msg.Lookbook) returns (lookbook.msg.Response);
+  rpc ListLookbooks (Empty) returns (lookbook.msg.Response);
+  rpc GetLookbookById (lookbook.msg.Id) returns (lookbook.msg.Response);
+  rpc GetLookbooksByUsersId (lookbook.msg.UsersId) returns (lookbook.msg.Response);
+  rpc UpdateLookbookNameById (lookbook.msg.NameRequest) returns (lookbook.msg.Response);
+  rpc AddItemToLookbook (lookbook.msg.ItemsRequest) returns (lookbook.msg.Response);
+  rpc RemoveItemFromLookbook (lookbook.msg.ItemsRequest) returns (lookbook.msg.Response);
+  rpc DeleteLookbookById (lookbook.msg.Id) returns (lookbook.msg.Response);
+}

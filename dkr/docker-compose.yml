@@ -1,6 +1,6 @@
 version: '3'
 services:
-  golang_hello-grpc:
+   wpx_lookbook-grpc:
     image: golang:1.9.1
     build: ../
     command: realize start
@@ -13,5 +13,13 @@ services:
       - DEBUG=true
       - DB_URL=mongodb://workplacex-db/workplacex
     ports:
-      - "50056:50051"
+      - "50057:50051"
+    links:
+      - workplacex-db:mongo
+    depends_on:
+      - workplacex-db
+   workplacex-db:
+    image: mongo
+    ports:
+      - "27017:27017"
     

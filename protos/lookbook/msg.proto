@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package lookbook.msg;
+
+message Id {
+  string _id = 1;
+}
+
+message UsersId {
+  string users_id = 1;
+}
+
+message ItemId {
+  string items_id = 1;
+}
+
+message Lookbook {
+  string _id = 1;
+  string name = 2;
+  string users_id = 3;
+  repeated string items_id = 4;
+}
+
+message NameRequest {
+  string _id = 1;
+  string name = 2;
+}
+
+message ItemsRequest {
+  string _id = 1;
+  string items_id = 2;
+}
+
+message Request {
+  string q = 1;
+  int32 limit = 2;
+  int32 page = 3;
+  string sort = 4;
+}
+
+message Response {
+  repeated Lookbook data = 1;
+}
+
+

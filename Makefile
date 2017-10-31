@@ -1,9 +1,9 @@
 .DEFAULT_GOAL := init
 
-WORKSPACE = golang
-APP = hello-grpc
+WORKSPACE = wpx
+APP = lookbook-grpc
 REGISTRY = gcr.io
-GCP_PROJECT = blah
+GCP_PROJECT = workplacex-179405/workplacex
 TSTAMP := $(shell /bin/date "+%Y-%m-%d_%H-%M-%S")
 
 ifdef GIT_COMMIT
